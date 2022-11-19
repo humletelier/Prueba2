@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registrarse</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+
+  <form [formGroup]="formulario" novalidate (ngSubmit)="guardarUsuario()" >
+    <ion-item>
+      <ion-label position="floating">Primer Nombre</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('firstName').errors.required && fueTocado('firstName') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('firstName').errors.maxlength && fueTocado('firstName') "
+      >
+        Los caracteres maximos son 20
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('firstName').errors.minlength && fueTocado('firstName') "
+      >
+        Los caracteres minimos son 1
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.required && fueTocado('lastName') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.maxlength && fueTocado('lastName') "
+      >
+        Los caracteres maximos son 20
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.minlength && fueTocado('lastName') "
+      >
+        Los caracteres maximos son 4
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input type="number" formControlName="age"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('age').invalid  && campo('age').errors && campo('age').errors.required && fueTocado('age') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('age').invalid  && campo('age').errors && campo('age').errors.max && fueTocado('age') "
+      >
+        Los caracteres maximos son 98
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('age').invalid  && campo('age').errors && campo('age').errors.min && fueTocado('age') "
+      >
+        Los caracteres minimos son 18
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nombre de Usuario</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.required && fueTocado('username') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.maxlength && fueTocado('username') "
+      >
+        Los caracteres maximos son 10
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength && fueTocado('username') "
+      >
+        Los caracteres maximos son 5
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Constraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.required && fueTocado('password') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.maxlength && fueTocado('password') "
+      >
+        Los caracteres maximos son 16
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength && fueTocado('username') "
+      >
+        Los caracteres maximos son 8
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de cumpleaños</ion-label>
+      <ion-input type="date" formControlName="birthdate"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('birthdate').invalid  && campo('birthdate').errors && campo('birthdate').errors.required && fueTocado('birthdate') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('birthdate').invalid  && campo('birthdate').errors && campo('birthdate').errors.max && fueTocado('birthdate') "
+      >
+        Los caracteres maximos son 2021
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('birthdate').invalid  && campo('birthdate').errors && campo('birthdate').errors.minlength && fueTocado('birthdate') "
+      >
+        Los caracteres maximos son 1992
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Genero </ion-label>
+      <ion-input type="text" formControlName="gender"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('gender').invalid  && campo('gender').errors && campo('gender').errors.required && fueTocado('gender') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('gender').invalid  && campo('gender').errors && campo('gender').errors.pattern && fueTocado('gender') "
+      >
+        Ingrese Male o Female
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-button
+        [disabled]="formulario.invalid"
+
+      role="submit" type="submit" >
+        Guardar
+      </ion-button>
+      <ion-button [routerLink]="['/']">Volver</ion-button>
+    </ion-item>
+  </form>
+</ion-card>
+</ion-content>

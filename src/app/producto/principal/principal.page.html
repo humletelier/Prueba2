@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>principal</ion-title>
+    <ion-icon name="log-out-outline" class="ion-icon" (click)="salir()" slot="end">
+
+    </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let item of productos" >
+    <ion-img [src]=" item.images" [routerLink]="['/detalleProducto']" ></ion-img>
+    <ion-card-header>
+
+      <ion-card-title [routerLink]="['/detalleProducto']" >
+        {{ item.title }}
+      </ion-card-title>
+
+      <ion-card-subtitle>
+        {{item.category}}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle>
+        {{item.rating}}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle>
+        {{item.price}}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle>
+        {{item.discountPercentage}}
+      </ion-card-subtitle>
+
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>
+        {{ item.products.description }}
+      </ion-label>
+    </ion-card-content>
+    <ion-card-content style="display: flex; justify-content: space-between;">
+
+      <ion-button  [routerLink]="['/']" color="success" >
+        <ion-icon name="reorder-four-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-item>
+     <ion-button role="submit" type="submit" expand="full" [routerLink]="['/detalleProducto']"> Detalle producto</ion-button>
+  </ion-item>
+
+</ion-content>

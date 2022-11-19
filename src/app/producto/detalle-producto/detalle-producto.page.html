@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalleProducto</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="producto">
+    <ion-img [src]="producto.images"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{ producto.title }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{producto.price | currency:'CLP'}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item>
+          <h6>description: {{ producto.description }}</h6>
+        </ion-item>
+        <ion-item>
+          <ion-label>category: {{ producto.category}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>stock: {{ producto.stock }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>brand: {{ producto.brand }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>rating {{ producto.rating }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>thumbnail {{ producto.thumbnail }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>discountPRecentage {{ producto.discountPercentage }}</ion-label>
+        </ion-item>
+
+
+      </ion-item-sliding>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="background-color: rgb(225, 181, 181);"
+          (click)="addCart()">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card-content style="display: flex; justify-content: space-between;">
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-button role="submit" type="submit" expand="full" [routerLink]="['/carrito']"> Carrito</ion-button>
+ </ion-item>
+</ion-content>

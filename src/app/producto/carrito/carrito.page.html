@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form >
+    <ion-card *ngFor="let p of carrito" >
+      <ion-header><ion-img [src]="p.images"></ion-img></ion-header>
+
+      <ion-list>
+
+  <ion-item>
+
+
+
+          <ion-button  color="medium" fill="clear"  style="height:auto; width:auto">
+            <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+          </ion-button>
+
+        <ion-col size-sm="1" class="ion-align-self-center">
+          {{ p.stock }}
+        </ion-col>
+
+
+          <ion-button color="medium" fill="clear"  style="margin-right:100px;">
+            <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button  class="ion-align-self-cente" color="black" fill="clear"  style="height:auto; width:auto" style="margin-left: -75px;">
+            Eliminar
+          </ion-button>
+
+
+
+  </ion-item>
+
+    <ion-label color="dark"> {{p.title}}</ion-label>
+    <ion-label color="dark" style="margin-left: 68px;">{{p.stock * p.price | currency:'CLP'}}</ion-label>
+
+</ion-list>
+</ion-card>
+  </form>
+
+
+  <ion-button expand="full">
+    Comprar
+  </ion-button>
+
+
+</ion-content>

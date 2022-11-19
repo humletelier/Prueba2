@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+
+    <form [formGroup]="formulario" novalidate (ngSubmit)="loguearUsuario()" >
+
+      <ion-item>
+        <ion-label position="floating">Nombre de Usuario</ion-label>
+        <ion-input type="text" formControlName="username" ></ion-input>
+        <ion-note
+        slot="error"
+          *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.required && fueTocado('username') "
+        >
+          Este campo es requerido
+        </ion-note>
+        <ion-note
+        slot="error"
+          *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.maxlength && fueTocado('username') "
+        >
+          Los caracteres maximos son 10
+        </ion-note>
+        <ion-note
+        slot="error"
+          *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength && fueTocado('username') "
+        >
+          Los caracteres maximos son 5
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Constraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-note
+        slot="error"
+          *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.required && fueTocado('password') "
+        >
+          Este campo es requerido
+        </ion-note>
+        <ion-note
+        slot="error"
+          *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.maxlength && fueTocado('password') "
+        >
+          Los caracteres maximos son 16
+        </ion-note>
+        <ion-note
+        slot="error"
+          *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength && fueTocado('username') "
+        >
+          Los caracteres maximos son 8
+        </ion-note>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-button
+          [disabled]="formulario.invalid"
+
+        role="submit" type="submit" >
+          Guardar
+        </ion-button>
+        <ion-button [routerLink]="['/registrarse']">Registrase</ion-button>
+      </ion-item>
+    </form>
+  </ion-card>
+</ion-content>
